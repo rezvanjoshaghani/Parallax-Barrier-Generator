@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallax Barrier Generator</title>
+    <script src="pb.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<div class="flex-container">
+
+    <div class="flex-child magenta">
+        <table>
+            <tr>
+                <th>Display Resolution</th>
+                <th><input type="text" id="pr:resW"></th>
+                <th><input type="text" id="pr:resH"></th>
+            </tr>
+            <tr>
+                <th>Display PPI</th>
+                <th><input type="text" id="pr:ppi"></th>
+            </tr>
+            <tr>
+                <th>Super Pixel Grid</th>
+                <th><input type="text" id="pr:spg"></th>
+            </tr>
+            <tr>
+                <th>d (mm)</th>
+                <th><input type="text" id="pr:d"></th>
+            </tr>
+            <tr>
+                <th>Plotter dpi</th>
+                <th><input type="text" id="pr:dpi"></th>
+            </tr>
+            <tr>
+                <th><button onclick="fillExampleData()">Example Data</button></th>
+                <th><button onclick="procInputData()">Generate</button></th>
+            </tr>
+        </table>
+        <br><br>
+        <table>
+            <tr>
+                <th>Super Resolution</th>
+                <th><label id="calc:srw"></label></th>
+                <th><label id="calc:srh"></label></th>
+            </tr>
+            <tr>
+                <th>Pixel Size</th>
+                <th><label id="calc:ps"></label><span> mm</span></th>
+                <th><label id="calc:psMic"></label><span> &#181;m</span></th>
+            </tr>
+            <tr>
+                <th>Super Pixel Size (W)</th>
+                <th><label id="calc:w"></label><span> mm</span></th>
+                <th><label id="calc:wm"></label><span> &#181;m</span></th>
+            </tr>
+            <tr>
+                <th>DPI</th>
+                <th><label id="calc:dpi"></label><span> mm</span></th>
+                <th><label id="calc:dpiMc"></label><span> &#181;m</span></th>
+            </tr>
+            <tr>
+                <th>FOV</th>
+                <th><label id="calc:fov"></label></th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="flex-child green">
+        <img width="500px" src="pics/pinHoleFormulas.png">
+        <img width="700px" src="pics/004.png">
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
