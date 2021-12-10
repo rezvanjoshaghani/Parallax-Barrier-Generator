@@ -30,6 +30,24 @@ function fillExampleData(){
     updateUI();
 }
 
+function fillExampleData2(){
+    ppi=130;
+    resW=1920;
+    resH=1080;
+    spGrid=5;
+    d=5;
+    dpi=1200;
+    document.getElementById('pr:ppi').value=ppi;
+    document.getElementById('pr:resW').value=resW;
+    document.getElementById('pr:resH').value=resH;
+    document.getElementById('pr:spg').value=spGrid;
+    document.getElementById('pr:d').value=d;
+    document.getElementById('pr:dpi').value=dpi;
+
+    calculateValues();
+    updateUI();
+}
+
 
 function calculateValues(){
     // convert pixel per inch to mm -> 25.4 mm/inch / ppi pixels/inch)
@@ -74,24 +92,27 @@ function roundToTwo(num) {
 
 function writeBarrierFile(){
     let output='newpath\n';
-    scale = ((1/ppi)/(1/72));
+    let scale = ((1 / ppi) / (1 / 72));
     scale=roundToTwo(scale)
     console.log("Scale:"+scale);
-    startX = 100;
-    startY = 100;
-    endpointX=roundToTwo((resW/ppi)*72);
-    endpointY=roundToTwo((resH/ppi)*72);
+    let startX = 0;
+    let startY = 0;
+    let endpointX = roundToTwo((resW / ppi) * 72);
+    let endpointY = roundToTwo((resH / ppi) * 72);
     console.log(endpointX);
 
-    let count;
-    for (let j=0;j<endpointY;j += scale*5) {
-        count = 0
-        startY += scale*5;
-        for (let i = 0; i < endpointX; i += scale) {
+    let countHorizontal=0;
+    let i=0
 
-            if (count % 5 === 2) {
-                x1 = roundToTwo(startX + i);
-                y1 = startY;
+    while (i < endpointX) {
+
+        if (countHorizontal % 5 === 2) {
+            let j=0;
+            // let countVertical=0;
+
+            while (j < endpointY){
+                x1 = roundToTwo(startX);
+                y1 = roundToTwo(startY);
                 x2 = x1;
                 y2 = roundToTwo(startY + 2 * scale)
                 output += x1 + " " + y1 + " " + "moveto\n"
@@ -102,22 +123,42 @@ function writeBarrierFile(){
 
                 output += x1 + " " + y1 + " " + "moveto\n"
                 output += x2 + " " + y2 + " " + "lineto\n"
-            } else {
-                x1 = roundToTwo(startX + i);
-                y1 = startY;
-                x2 = x1;
-                y2 = roundToTwo(startY + 5 * scale)
-                output += x1 + " " + y1 + " " + "moveto\n"
-                output += x2 + " " + y2 + " " + "lineto\n"
+
+                startY += scale*5;
+                j += scale*5
             }
+            output+= scale + ' setlinewidth\n';
+            i += scale;
+            startX+=scale;
+            console.log("countHorizontal")
+            console.log(countHorizontal)
+            countHorizontal++;
 
+        } else {
+            startY=0;
+            x1 = roundToTwo(startX);
+            y1 = startY;
+            x2 = x1;
+            y2 = roundToTwo(endpointY+startY)
+            output += x1 + " " + y1 + " " + "moveto\n"
+            output += x2 + " " + y2 + " " + "lineto\n"
 
-            count++;
+            output+= 2*scale + ' setlinewidth\n';
+
+            startX+= 2*scale;
+            i += 2*scale;
+            countHorizontal+=2;
         }
-    }
-    console.log(count)
 
-    output+= scale + ' setlinewidth\n';
+
+
+
+
+    }
+    console.log(countHorizontal)
+    console.log(i)
+
+
     output+='stroke\n';
 
     console.log(output);
