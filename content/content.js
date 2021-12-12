@@ -79,24 +79,24 @@ void main() {
   //   outColor = vec4(0.2,1.0,1.0,1.0);
   
   
-  // if (mod(v_posPix[0]*1.0,5.0) < 1.0 && mod(v_posPix[1]*1.0,5.0) < 1.0 )
-  //   outColor = vec4(1.0,0.0,1.0,1.0);
-  // else if (mod(v_posPix[0]*1.0,5.0) < 2.0 && mod(v_posPix[1]*1.0,5.0) < 2.0 )
-  //   outColor = vec4(0.2,1.0,0.0,1.0);
-  // else if (mod(v_posPix[0]*1.0,5.0) < 3.0 && mod(v_posPix[1]*1.0,5.0) < 3.0  )
-  //   outColor = vec4(0.2,0.0,1.0,1.0);
-  // else if (mod(v_posPix[0]*1.0,5.0) < 4.0 && mod(v_posPix[1]*1.0,5.0) < 4.0 )
-  //   outColor = vec4(0.0,0.0,0.0,1.0);
-  // else if (mod(v_posPix[0]*1.0,5.0) < 5.0 && mod(v_posPix[1]*1.0,5.0) < 5.0 )
-  //   outColor = vec4(1.0,1.0,1.0,1.0);
-  // else
-  //   outColor = vec4(0.2,1.0,1.0,1.0);
-  
-  
-  if (mod(v_posPix[0]*1.0,2.0) < 1.0 && mod(v_posPix[1]*1.0,2.0) < 1.0 )
+  if (mod(v_posPix[0]*1.0,5.0) < 1.0 && mod(v_posPix[1]*1.0,5.0) < 1.0 )
+    outColor = vec4(1.0,0.0,1.0,1.0);
+  else if (mod(v_posPix[0]*1.0,5.0) < 2.0 && mod(v_posPix[1]*1.0,5.0) < 2.0 )
+    outColor = vec4(0.2,1.0,0.0,1.0);
+  else if (mod(v_posPix[0]*1.0,5.0) < 3.0 && mod(v_posPix[1]*1.0,5.0) < 3.0  )
+    outColor = vec4(0.2,0.0,1.0,1.0);
+  else if (mod(v_posPix[0]*1.0,5.0) < 4.0 && mod(v_posPix[1]*1.0,5.0) < 4.0 )
+    outColor = vec4(0.0,0.0,0.0,1.0);
+  else if (mod(v_posPix[0]*1.0,5.0) < 5.0 && mod(v_posPix[1]*1.0,5.0) < 5.0 )
     outColor = vec4(1.0,1.0,1.0,1.0);
   else
-    outColor = vec4(0.0,0.0,0.0,1.0);
+    outColor = vec4(0.2,1.0,1.0,1.0);
+  
+  
+  // if (mod(v_posPix[0]*1.0,2.0) < 1.0 && mod(v_posPix[1]*1.0,2.0) < 1.0 )
+  //   outColor = vec4(1.0,1.0,1.0,1.0);
+  // else
+  //   outColor = vec4(0.0,0.0,0.0,1.0);
 }
 `;
 
