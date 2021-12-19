@@ -40,6 +40,10 @@ d'=(e.d/p.n2)
 
 You can use the above formula and put n2 to 1 but make s slightly less than p to account for refraction.
 
+Below is an image of the barrier generator app, you need to input the display resolution and ppi. The size of the super pixel grid should be the size of the light field vertical or horizontal aperture. The value of d is the distance between device glass and the parallax barrier. By inputting the plotter dpi you can compare the dpi with the pixel size to make sure you can print at that dpi.
+Two examples are provided just click on the Example data buttons  to populate the text fields with data and by hitting generate barrier button a ps file will be downloaded that you can convert it to pdf using this [link](https://ehubsoft.herokuapp.com/psviewer/). 
+![alignment](pics/app.jpg)
+
 
 ### Alignment and testing barrier correctness
 

@@ -96,7 +96,7 @@ function writeBarrierFile(){
     scale=roundToTwo(scale)
     console.log("Scale:"+scale);
 
-    startPoint=0;
+    startPoint=100;
 
     let startX = startPoint;
     let startY = startPoint;
@@ -166,4 +166,21 @@ function writeBarrierFile(){
 
     console.log(output);
 
+// Start file download.
+    download("parallax-barrier.ps",output);
+
+
+}
+
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
 }
