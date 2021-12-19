@@ -95,8 +95,11 @@ function writeBarrierFile(){
     let scale = ((1 / ppi) / (1 / 72));
     scale=roundToTwo(scale)
     console.log("Scale:"+scale);
-    let startX = 100;
-    let startY = 100;
+
+    startPoint=0;
+
+    let startX = startPoint;
+    let startY = startPoint;
     let endpointX = roundToTwo((resW / ppi) * 72);
     let endpointY = roundToTwo((resH / ppi) * 72);
     console.log(endpointX);
@@ -110,23 +113,23 @@ function writeBarrierFile(){
             let j=0;
             // let countVertical=0;
 
-            // while (j < endpointY){
-            //     x1 = roundToTwo(startX);
-            //     y1 = roundToTwo(startY);
-            //     x2 = x1;
-            //     y2 = roundToTwo(startY + 2 * scale)
-            //     output += x1 + " " + y1 + " " + "moveto\n"
-            //     output += x2 + " " + y2 + " " + "lineto\n"
-            //
-            //     y1 = roundToTwo(y2 + scale)
-            //     y2 = roundToTwo(y2 + 3 * scale)
-            //
-            //     output += x1 + " " + y1 + " " + "moveto\n"
-            //     output += x2 + " " + y2 + " " + "lineto\n"
-            //
-            //     startY += scale*5;
-            //     j += scale*5
-            // }
+            while (j < endpointY){
+                x1 = roundToTwo(startX);
+                y1 = roundToTwo(startY);
+                x2 = x1;
+                y2 = roundToTwo(startY + 2 * scale)
+                output += x1 + " " + y1 + " " + "moveto\n"
+                output += x2 + " " + y2 + " " + "lineto\n"
+
+                y1 = roundToTwo(y2 + scale)
+                y2 = roundToTwo(y2 + 3 * scale)
+
+                output += x1 + " " + y1 + " " + "moveto\n"
+                output += x2 + " " + y2 + " " + "lineto\n"
+
+                startY += scale*5;
+                j += scale*5
+            }
             output+= scale + ' setlinewidth\n';
             i += scale;
             startX+=scale;
@@ -135,7 +138,7 @@ function writeBarrierFile(){
             countHorizontal++;
 
         } else {
-            startY=100;
+            startY=startPoint;
             x1 = roundToTwo(startX);
             y1 = startY;
             x2 = x1;

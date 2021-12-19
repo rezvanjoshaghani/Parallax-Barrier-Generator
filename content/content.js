@@ -58,12 +58,6 @@ out vec4 outColor;
 
 void main() {
   vec2 onePixel = vec2(1) / vec2(textureSize(u_image0, 0));
-
-  // average the left, middle, and right pixels.
-  // outColor = (
-  //     texture(u_image, v_texCoord) +
-  //     texture(u_image, v_texCoord + vec2( onePixel.x, 0.0)) +
-  //     texture(u_image, v_texCoord + vec2(-onePixel.x, 0.0))) / 3.0;
   
   // if (mod(v_posPix[0]*1.0,5.0) < 1.0 )
   //   outColor = texture(u_image0, v_texCoord);
@@ -79,24 +73,24 @@ void main() {
   //   outColor = vec4(0.2,1.0,1.0,1.0);
   
   
-  if (mod(v_posPix[0]*1.0,5.0) < 1.0 && mod(v_posPix[1]*1.0,5.0) < 1.0 )
-    outColor = vec4(1.0,0.0,1.0,1.0);
-  else if (mod(v_posPix[0]*1.0,5.0) < 2.0 && mod(v_posPix[1]*1.0,5.0) < 2.0 )
-    outColor = vec4(0.2,1.0,0.0,1.0);
-  else if (mod(v_posPix[0]*1.0,5.0) < 3.0 && mod(v_posPix[1]*1.0,5.0) < 3.0  )
-    outColor = vec4(0.2,0.0,1.0,1.0);
-  else if (mod(v_posPix[0]*1.0,5.0) < 4.0 && mod(v_posPix[1]*1.0,5.0) < 4.0 )
-    outColor = vec4(0.0,0.0,0.0,1.0);
-  else if (mod(v_posPix[0]*1.0,5.0) < 5.0 && mod(v_posPix[1]*1.0,5.0) < 5.0 )
-    outColor = vec4(1.0,1.0,1.0,1.0);
-  else
-    outColor = vec4(0.2,1.0,1.0,1.0);
-  
-  
-  // if (mod(v_posPix[0]*1.0,2.0) < 1.0 && mod(v_posPix[1]*1.0,2.0) < 1.0 )
+  // if (mod(v_posPix[0]*1.0,5.0) < 1.0 && mod(v_posPix[1]*1.0,5.0) < 1.0 )
+  //   outColor = vec4(1.0,0.0,1.0,1.0);
+  // else if (mod(v_posPix[0]*1.0,5.0) < 2.0 && mod(v_posPix[1]*1.0,5.0) < 2.0 )
+  //   outColor = vec4(0.2,1.0,0.0,1.0);
+  // else if (mod(v_posPix[0]*1.0,5.0) < 3.0 && mod(v_posPix[1]*1.0,5.0) < 3.0  )
+  //   outColor = vec4(0.2,0.0,1.0,1.0);
+  // else if (mod(v_posPix[0]*1.0,5.0) < 4.0 && mod(v_posPix[1]*1.0,5.0) < 4.0 )
+  //   outColor = vec4(0.0,0.0,0.0,1.0);
+  // else if (mod(v_posPix[0]*1.0,5.0) < 5.0 && mod(v_posPix[1]*1.0,5.0) < 5.0 )
   //   outColor = vec4(1.0,1.0,1.0,1.0);
   // else
-  //   outColor = vec4(0.0,0.0,0.0,1.0);
+  //   outColor = vec4(0.2,1.0,1.0,1.0);
+  
+  
+  if (mod(v_posPix[0]*1.0,9.0) < 1.0 && mod(v_posPix[1]*1.0,9.0) < 1.0 )
+    outColor = vec4(1.0,1.0,1.0,1.0);
+  else
+    outColor = vec4(0.0,0.0,0.0,1.0);
 }
 `;
 

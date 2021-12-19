@@ -40,32 +40,47 @@ d'=(e.d/p.n2)
 
 You can use the above formula and put n2 to 1 but make s slightly less than p to account for refraction.
 
-### Implementation 
 
-<img src="pics/alignment.gif" width="48">
+### Alignment and testing barrier correctness
 
-<img src="https://github.com/favicon.ico" width="48">
+To align the barrier put the barrier on top of the device and rotate it until you can see only one large circle. As the barrier gets more misaligned the number of circles increases, and they become smaller like the picture bellow. If you cannot achieve one circle it is an indication that the barrier slit sizes are too big compared to you device pixel sizes. If the circles do not form at all either the slits are too big, or they are too small. You can zoom in and out of the grid image to see which is the case.
+
+![alignment](pics/alignment.gif)
+
+After aligning the barrier, you can test the horizontal parallax using the 1-5 images. If your barrier is correct you should see clear images of 1 to 5 from different angles.
+
+![Horizontal Parallax](pics/hp.gif)
+
+Here is an example of final result:
 
 
-|![Parralax Barrier Image]( )|![Parralax Barrier Image](pics/hp.gif)| 
+![example Parallax](pics/bunny3d.gif)
+
 
 ## Parallax Barrier Content Generator
 The content generator contains a python file that creates a 2D image that supports movement parallax (horizontal parallax). 
 ## Parallax Barrier Notes and Challenges
 - If you're only looking for a horizontal parallax only removing the spacer helps with closing the field of view by making it less sensitive to movement.
 - For a 3D effect adding the spacer helps with creating a better sense of depth.
-- The best parallax barrier mask that you can get with a 1200 dpi printer is for devices with around 114 ppi or less.
+- The best parallax barrier mask that you can get with a 1200 dpi printer is for devices with around 114 ppi or less. For any ppi higher than that you need a printer with 5000 or higher for the barrier to be effective.
 - Make sure you get transparencies that are suitable for printing and don't print with ink!
 - Ensure that the printer's horizontal resolution is as same as the vertical resolution. If horizontal resolution is less than the vertical you can flip the page for printing since the horizontal parallax is more noticeable.
-
+- Ensure that the image dispalying on the device is 1:1 with device pixels.
+- Make sure the operating system scaling is set to 100%, in any other value you will not get the effect even if the barrier is correct. 
 
 ## Layer 3D Generator
 You can use this opengl [application](https://web.media.mit.edu/~gordonw/courses/ComputationalDisplays/GPUSolverSART-1.0.zip) to create polarized slices. All you have to do is to input your the path to your light field aperture folder and changed the config file details.
 In the config file you can specify the number of the layers and their location.
 
+### Implementation
+
+![Layer 3d car](pics/layer3dCar.gif)
+
+![Layer 3d dice](pics/layer3DDice.gif)
+
 
 ## Layer 3D Notes and Challenges
-The size of the spacer that you use need to be equal or lesser than the space between light field slices.
+- The size of the spacer that you use need to be equal or lesser than the space between light field slices.
 ## References and Useful Resources
 
 
